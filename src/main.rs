@@ -67,14 +67,13 @@ struct Werkstatt{
 
 impl Werkstatt{
     fn new(auto: Box<dyn Auto>) -> Werkstatt{
-        let fahrzeug = auto;
-        }
-    }
+        return Werkstatt{ fahrzeug : auto};
+   }
 
-    fn zeige_fahrzeug(){
-        print!("Ich habe {0} PS: ", fahrzeug.get_ps());
+    fn zeige_fahrzeug(&self){
+        print!("Ich habe {0} PS: ", self.fahrzeug.get_ps());
 
-        fahrzeug.say_who_am_i();
+        self.fahrzeug.say_who_am_i();
     }
 }
 
@@ -85,11 +84,11 @@ fn main() {
 
     let auto2 = Autofabrik::new(Autos::Pkw, 80);
 
-    let mut werkstatt: Werkstatt = Werkstatt::new(auto1);
+    let werkstatt: Werkstatt = Werkstatt::new(auto1);
 
     werkstatt.zeige_fahrzeug();
 
-    let mut werkstatt: Werkstatt = Werkstatt::new(auto2);
+    let werkstatt: Werkstatt = Werkstatt::new(auto2);
 
     werkstatt.zeige_fahrzeug();
 }

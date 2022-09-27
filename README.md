@@ -1,1 +1,1 @@
-Example Factory-Pattern in Rust
+Example Dependency-Injection in Rust
